@@ -7,6 +7,7 @@
             <p>Click login</p>
             <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
             </fb:login-button>
+<<<<<<< HEAD
           </form>
           
 
@@ -16,6 +17,27 @@
         </div>
         <div class="col-sm-6">
                   </div>
+=======
+            <div id="status">
+          </div>
+            <p>Please enter your birthday</p>
+              <input type="text" class="form-control" placeholder="25 December 1900" ng-model="user.day" name="day">
+            <!--   <input id ="gender" type="text" class="form-control" ng-model="user.gender" name="gender"> -->
+              
+          </form>
+          
+
+          
+          <div id="fb-root"></div>
+        </div>
+        <div class="col-sm-6">
+            <p> {{user.day}}</p>
+            <p> {{sex}}</p>
+            <p> {{user.names}}</p>
+            <p> {{user.gender}}</p>
+            <p>{{user| akanName}}</p>
+        </div>
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
       </div>
     </div>
     

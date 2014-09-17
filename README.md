@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # angular-seed — the seed for AngularJS apps
 
 This project is an application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
@@ -104,6 +105,27 @@ There are two kinds of tests in the angular-seed application: Unit tests and End
 
 ### Running Unit Tests
 
+=======
+angular-seed-akanName
+=====================
+COntributors :
+==========================
+	Abdul Muhsin Iddris
+	Ernest Kuffour
+
+An applications that takes the day of birth of the user and return their akan name for the day
+
+HOW TO DOWNLOAD
+==========================
+	using git; clone the repository : "git clone https://github.com/abdulmuhsinGH/angular-seed-akanNAme.git"
+
+	or from github there is a download link to donwload the app's source code as a zip file. 
+Testing 
+==========================
+	to test the code you need to run the npm test. before doing the test you need to make sure that you have installed the npm. the is done by running the command "npm install" in the directory in which the akanName app was cloned in your local drive. the npm must be installed in the folder in which the akanName soure code is found.  To run the npm test run "npm test" in the same directory with your command prompt. 
+
+
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
 The angular-seed app comes preconfigured with unit tests. These are written in
 [Jasmine][jasmine], which we run with the [Karma Test Runner][karma]. We provide a Karma
 configuration file to run them.
@@ -125,6 +147,7 @@ you receive instant feedback on any changes that break the expected code functio
 You can also ask Karma to do a single run of the tests and then exit.  This is useful if you want to
 check that a particular version of the code is operating as expected.  The project contains a
 predefined script to do this:
+<<<<<<< HEAD
 
 ```
 npm run test-single-run
@@ -287,3 +310,12 @@ For more information on AngularJS please check out http://angularjs.org/
 [karma]: http://karma-runner.github.io
 [travis]: https://travis-ci.org/
 [http-server]: https://github.com/nodeapps/http-server
+=======
+```
+npm run test-single-run
+```
+(from angular readme file)
+Running the App
+==========================
+	to run the app on your local server you need to start npm server. This is done by running "npm start" in the directory in which you installed the npm. 
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3

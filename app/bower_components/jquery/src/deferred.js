@@ -1,9 +1,12 @@
+<<<<<<< HEAD
 define([
 	"./core",
 	"./var/slice",
 	"./callbacks"
 ], function( jQuery, slice ) {
 
+=======
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
 jQuery.extend({
 
 	Deferred: function( func ) {
@@ -26,7 +29,12 @@ jQuery.extend({
 					var fns = arguments;
 					return jQuery.Deferred(function( newDefer ) {
 						jQuery.each( tuples, function( i, tuple ) {
+<<<<<<< HEAD
 							var fn = jQuery.isFunction( fns[ i ] ) && fns[ i ];
+=======
+							var action = tuple[ 0 ],
+								fn = jQuery.isFunction( fns[ i ] ) && fns[ i ];
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
 							// deferred[ done | fail | progress ] for forwarding actions to newDefer
 							deferred[ tuple[1] ](function() {
 								var returned = fn && fn.apply( this, arguments );
@@ -36,7 +44,11 @@ jQuery.extend({
 										.fail( newDefer.reject )
 										.progress( newDefer.notify );
 								} else {
+<<<<<<< HEAD
 									newDefer[ tuple[ 0 ] + "With" ]( this === promise ? newDefer.promise() : this, fn ? [ returned ] : arguments );
+=======
+									newDefer[ action + "With" ]( this === promise ? newDefer.promise() : this, fn ? [ returned ] : arguments );
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
 								}
 							});
 						});
@@ -95,7 +107,11 @@ jQuery.extend({
 	// Deferred helper
 	when: function( subordinate /* , ..., subordinateN */ ) {
 		var i = 0,
+<<<<<<< HEAD
 			resolveValues = slice.call( arguments ),
+=======
+			resolveValues = core_slice.call( arguments ),
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
 			length = resolveValues.length,
 
 			// the count of uncompleted subordinates
@@ -108,8 +124,13 @@ jQuery.extend({
 			updateFunc = function( i, contexts, values ) {
 				return function( value ) {
 					contexts[ i ] = this;
+<<<<<<< HEAD
 					values[ i ] = arguments.length > 1 ? slice.call( arguments ) : value;
 					if ( values === progressValues ) {
+=======
+					values[ i ] = arguments.length > 1 ? core_slice.call( arguments ) : value;
+					if( values === progressValues ) {
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
 						deferred.notifyWith( contexts, values );
 					} else if ( !( --remaining ) ) {
 						deferred.resolveWith( contexts, values );
@@ -144,6 +165,9 @@ jQuery.extend({
 		return deferred.promise();
 	}
 });
+<<<<<<< HEAD
 
 return jQuery;
 });
+=======
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3

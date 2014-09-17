@@ -12,6 +12,7 @@ myApp.config(['$routeProvider', function($routeProvider) {
 }])
 
 myApp.controller('View1Ctrl',['$scope', function($scope) {
+<<<<<<< HEAD
 	/*$scope.user={"day":birthday,
                   "gender":gender};*/
  
@@ -23,17 +24,38 @@ myApp.controller('View1Ctrl',['$scope', function($scope) {
 }]);
 
 /*myApp.filter('akanName', function() {
+=======
+	$scope.user={"day":"",
+                  "gender":gender};
+   
+
+	 console.log('gender: ' + gender);
+
+	
+
+}]);
+
+myApp.filter('akanName', function() {
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
     return function(input) {
       input = input || '';
       //var gender = input1 ||'';
       var output = input;
+<<<<<<< HEAD
       //console.log(birthday)
      var day=getTheDay(birthday)
+=======
+     var day=getTheDay(output.day)
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
      if(day==null){return null;}
       return akanName(day.toUpperCase(),gender.toUpperCase());
     };
   });
+<<<<<<< HEAD
 */
+=======
+
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
 
 function akanName($day, $gender){
 
@@ -145,6 +167,7 @@ window.fbAsyncInit = function() {
 
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
+<<<<<<< HEAD
     FB.api('/me?fields=id,name,birthday,gender', function(response) {
       console.log('Successful login for: ' + response.name);
       console.log('Successful login for: ' + response.gender);
@@ -165,6 +188,19 @@ window.fbAsyncInit = function() {
 
         +'\nYour Akan Name:'+akanName(day.toUpperCase(), gender.toUpperCase());
        // console.log(birthday);      // console.log(gender);
+=======
+    FB.api('/me?fields=id,name,birthday', function(response) {
+      console.log('Successful login for: ' + response.name);
+      console.log('Successful login for: ' + response.gender);
+      console.log('Successful login for: ' + response.birthday);
+     gender= document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '! ' +'Gender:'+response.gender;
+        //'Gender: ' + response.gender + '.';
+       // document.getElementById('gender').innerHTML=response.gender;
+        gender=response.gender;
+        birthday=response.birthday;
+      // console.log(gender);
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
     });
   }
 

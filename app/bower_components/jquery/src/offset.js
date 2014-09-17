@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 define([
 	"./core",
 	"./var/strundefined",
@@ -29,10 +30,56 @@ jQuery.offset = {
 			props = {};
 
 		// Set position first, in-case top/left are set even on static elem
+=======
+jQuery.fn.offset = function( options ) {
+	if ( arguments.length ) {
+		return options === undefined ?
+			this :
+			this.each(function( i ) {
+				jQuery.offset.setOffset( this, options, i );
+			});
+	}
+
+	var docElem, win,
+		box = { top: 0, left: 0 },
+		elem = this[ 0 ],
+		doc = elem && elem.ownerDocument;
+
+	if ( !doc ) {
+		return;
+	}
+
+	docElem = doc.documentElement;
+
+	// Make sure it's not a disconnected DOM node
+	if ( !jQuery.contains( docElem, elem ) ) {
+		return box;
+	}
+
+	// If we don't have gBCR, just use 0,0 rather than error
+	// BlackBerry 5, iOS 3 (original iPhone)
+	if ( typeof elem.getBoundingClientRect !== core_strundefined ) {
+		box = elem.getBoundingClientRect();
+	}
+	win = getWindow( doc );
+	return {
+		top: box.top  + ( win.pageYOffset || docElem.scrollTop )  - ( docElem.clientTop  || 0 ),
+		left: box.left + ( win.pageXOffset || docElem.scrollLeft ) - ( docElem.clientLeft || 0 )
+	};
+};
+
+jQuery.offset = {
+
+	setOffset: function( elem, options, i ) {
+		var position = jQuery.css( elem, "position" );
+
+		// set position first, in-case top/left are set even on static elem
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
 		if ( position === "static" ) {
 			elem.style.position = "relative";
 		}
 
+<<<<<<< HEAD
 		curOffset = curElem.offset();
 		curCSSTop = jQuery.css( elem, "top" );
 		curCSSLeft = jQuery.css( elem, "left" );
@@ -40,11 +87,24 @@ jQuery.offset = {
 			( curCSSTop + curCSSLeft ).indexOf("auto") > -1;
 
 		// Need to be able to calculate position if either top or left is auto and position is either absolute or fixed
+=======
+		var curElem = jQuery( elem ),
+			curOffset = curElem.offset(),
+			curCSSTop = jQuery.css( elem, "top" ),
+			curCSSLeft = jQuery.css( elem, "left" ),
+			calculatePosition = ( position === "absolute" || position === "fixed" ) && jQuery.inArray("auto", [curCSSTop, curCSSLeft]) > -1,
+			props = {}, curPosition = {}, curTop, curLeft;
+
+		// need to be able to calculate position if either top or left is auto and position is either absolute or fixed
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
 		if ( calculatePosition ) {
 			curPosition = curElem.position();
 			curTop = curPosition.top;
 			curLeft = curPosition.left;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
 		} else {
 			curTop = parseFloat( curCSSTop ) || 0;
 			curLeft = parseFloat( curCSSLeft ) || 0;
@@ -63,13 +123,17 @@ jQuery.offset = {
 
 		if ( "using" in options ) {
 			options.using.call( elem, props );
+<<<<<<< HEAD
 
+=======
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
 		} else {
 			curElem.css( props );
 		}
 	}
 };
 
+<<<<<<< HEAD
 jQuery.fn.extend({
 	offset: function( options ) {
 		if ( arguments.length ) {
@@ -107,6 +171,10 @@ jQuery.fn.extend({
 			left: box.left + win.pageXOffset - docElem.clientLeft
 		};
 	},
+=======
+
+jQuery.fn.extend({
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
 
 	position: function() {
 		if ( !this[ 0 ] ) {
@@ -114,6 +182,7 @@ jQuery.fn.extend({
 		}
 
 		var offsetParent, offset,
+<<<<<<< HEAD
 			elem = this[ 0 ],
 			parentOffset = { top: 0, left: 0 };
 
@@ -122,6 +191,15 @@ jQuery.fn.extend({
 			// We assume that getBoundingClientRect is available when computed position is fixed
 			offset = elem.getBoundingClientRect();
 
+=======
+			parentOffset = { top: 0, left: 0 },
+			elem = this[ 0 ];
+
+		// fixed elements are offset from window (parentOffset = {top:0, left: 0}, because it is it's only offset parent
+		if ( jQuery.css( elem, "position" ) === "fixed" ) {
+			// we assume that getBoundingClientRect is available when computed position is fixed
+			offset = elem.getBoundingClientRect();
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
 		} else {
 			// Get *real* offsetParent
 			offsetParent = this.offsetParent();
@@ -133,30 +211,49 @@ jQuery.fn.extend({
 			}
 
 			// Add offsetParent borders
+<<<<<<< HEAD
 			parentOffset.top += jQuery.css( offsetParent[ 0 ], "borderTopWidth", true );
+=======
+			parentOffset.top  += jQuery.css( offsetParent[ 0 ], "borderTopWidth", true );
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
 			parentOffset.left += jQuery.css( offsetParent[ 0 ], "borderLeftWidth", true );
 		}
 
 		// Subtract parent offsets and element margins
+<<<<<<< HEAD
 		return {
 			top: offset.top - parentOffset.top - jQuery.css( elem, "marginTop", true ),
 			left: offset.left - parentOffset.left - jQuery.css( elem, "marginLeft", true )
+=======
+		// note: when an element has margin: auto the offsetLeft and marginLeft
+		// are the same in Safari causing offset.left to incorrectly be 0
+		return {
+			top:  offset.top  - parentOffset.top - jQuery.css( elem, "marginTop", true ),
+			left: offset.left - parentOffset.left - jQuery.css( elem, "marginLeft", true)
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
 		};
 	},
 
 	offsetParent: function() {
 		return this.map(function() {
 			var offsetParent = this.offsetParent || docElem;
+<<<<<<< HEAD
 
 			while ( offsetParent && ( !jQuery.nodeName( offsetParent, "html" ) && jQuery.css( offsetParent, "position" ) === "static" ) ) {
 				offsetParent = offsetParent.offsetParent;
 			}
 
+=======
+			while ( offsetParent && ( !jQuery.nodeName( offsetParent, "html" ) && jQuery.css( offsetParent, "position") === "static" ) ) {
+				offsetParent = offsetParent.offsetParent;
+			}
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
 			return offsetParent || docElem;
 		});
 	}
 });
 
+<<<<<<< HEAD
 // Create scrollLeft and scrollTop methods
 jQuery.each( { scrollLeft: "pageXOffset", scrollTop: "pageYOffset" }, function( method, prop ) {
 	var top = "pageYOffset" === prop;
@@ -167,12 +264,32 @@ jQuery.each( { scrollLeft: "pageXOffset", scrollTop: "pageYOffset" }, function( 
 
 			if ( val === undefined ) {
 				return win ? win[ prop ] : elem[ method ];
+=======
+
+// Create scrollLeft and scrollTop methods
+jQuery.each( {scrollLeft: "pageXOffset", scrollTop: "pageYOffset"}, function( method, prop ) {
+	var top = /Y/.test( prop );
+
+	jQuery.fn[ method ] = function( val ) {
+		return jQuery.access( this, function( elem, method, val ) {
+			var win = getWindow( elem );
+
+			if ( val === undefined ) {
+				return win ? (prop in win) ? win[ prop ] :
+					win.document.documentElement[ method ] :
+					elem[ method ];
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
 			}
 
 			if ( win ) {
 				win.scrollTo(
+<<<<<<< HEAD
 					!top ? val : window.pageXOffset,
 					top ? val : window.pageYOffset
+=======
+					!top ? val : jQuery( win ).scrollLeft(),
+					top ? val : jQuery( win ).scrollTop()
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
 				);
 
 			} else {
@@ -182,6 +299,7 @@ jQuery.each( { scrollLeft: "pageXOffset", scrollTop: "pageYOffset" }, function( 
 	};
 });
 
+<<<<<<< HEAD
 // Add the top/left cssHooks using jQuery.fn.position
 // Webkit bug: https://bugs.webkit.org/show_bug.cgi?id=29084
 // getComputedStyle returns percent when specified for top/left/bottom/right
@@ -202,3 +320,12 @@ jQuery.each( [ "top", "left" ], function( i, prop ) {
 
 return jQuery;
 });
+=======
+function getWindow( elem ) {
+	return jQuery.isWindow( elem ) ?
+		elem :
+		elem.nodeType === 9 ?
+			elem.defaultView || elem.parentWindow :
+			false;
+}
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3

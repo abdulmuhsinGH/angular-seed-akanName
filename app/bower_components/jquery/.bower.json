@@ -1,5 +1,6 @@
 {
   "name": "jquery",
+<<<<<<< HEAD
   "version": "2.1.1",
   "main": "dist/jquery.js",
   "license": "MIT",
@@ -33,5 +34,24 @@
   },
   "_source": "git://github.com/jquery/jquery.git",
   "_target": ">= 1.9.0",
+=======
+  "version": "1.10.2",
+  "description": "jQuery component",
+  "keywords": [
+    "jquery",
+    "component"
+  ],
+  "main": "jquery.js",
+  "license": "MIT",
+  "homepage": "https://github.com/jquery/jquery",
+  "_release": "1.10.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.10.2",
+    "commit": "16b079b164d62bd807c612806842a13bf9b04d17"
+  },
+  "_source": "git://github.com/jquery/jquery.git",
+  "_target": "1.10.2",
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
   "_originalSource": "jquery"
 }

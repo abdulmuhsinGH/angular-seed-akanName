@@ -1,15 +1,22 @@
+<<<<<<< HEAD
 define([
 	"./core",
 	"./var/rnotwhite"
 ], function( jQuery, rnotwhite ) {
 
+=======
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
 // String to Object options format cache
 var optionsCache = {};
 
 // Convert String-formatted options into Object-formatted ones and store in cache
 function createOptions( options ) {
 	var object = optionsCache[ options ] = {};
+<<<<<<< HEAD
 	jQuery.each( options.match( rnotwhite ) || [], function( _, flag ) {
+=======
+	jQuery.each( options.match( core_rnotwhite ) || [], function( _, flag ) {
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
 		object[ flag ] = true;
 	});
 	return object;
@@ -45,6 +52,7 @@ jQuery.Callbacks = function( options ) {
 		( optionsCache[ options ] || createOptions( options ) ) :
 		jQuery.extend( {}, options );
 
+<<<<<<< HEAD
 	var // Last fire value (for non-forgettable lists)
 		memory,
 		// Flag to know if list was already fired
@@ -53,10 +61,23 @@ jQuery.Callbacks = function( options ) {
 		firing,
 		// First callback to fire (used internally by add and fireWith)
 		firingStart,
+=======
+	var // Flag to know if list is currently firing
+		firing,
+		// Last fire value (for non-forgettable lists)
+		memory,
+		// Flag to know if list was already fired
+		fired,
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
 		// End of the loop when firing
 		firingLength,
 		// Index of currently firing callback (modified by remove if needed)
 		firingIndex,
+<<<<<<< HEAD
+=======
+		// First callback to fire (used internally by add and fireWith)
+		firingStart,
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
 		// Actual callback list
 		list = [],
 		// Stack of fire calls for repeatable lists
@@ -126,7 +147,11 @@ jQuery.Callbacks = function( options ) {
 				if ( list ) {
 					jQuery.each( arguments, function( _, arg ) {
 						var index;
+<<<<<<< HEAD
 						while ( ( index = jQuery.inArray( arg, list, index ) ) > -1 ) {
+=======
+						while( ( index = jQuery.inArray( arg, list, index ) ) > -1 ) {
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
 							list.splice( index, 1 );
 							// Handle firing indexes
 							if ( firing ) {
@@ -200,6 +225,9 @@ jQuery.Callbacks = function( options ) {
 
 	return self;
 };
+<<<<<<< HEAD
 
 return jQuery;
 });
+=======
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3

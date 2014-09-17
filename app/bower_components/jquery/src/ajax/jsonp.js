@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 define([
 	"../core",
 	"./var/nonce",
@@ -5,6 +6,8 @@ define([
 	"../ajax"
 ], function( jQuery, nonce, rquery ) {
 
+=======
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
 var oldCallbacks = [],
 	rjsonp = /(=)\?(?=&|$)|\?\?/;
 
@@ -12,7 +15,11 @@ var oldCallbacks = [],
 jQuery.ajaxSetup({
 	jsonp: "callback",
 	jsonpCallback: function() {
+<<<<<<< HEAD
 		var callback = oldCallbacks.pop() || ( jQuery.expando + "_" + ( nonce++ ) );
+=======
+		var callback = oldCallbacks.pop() || ( jQuery.expando + "_" + ( ajax_nonce++ ) );
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
 		this[ callback ] = true;
 		return callback;
 	}
@@ -39,7 +46,11 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 		if ( jsonProp ) {
 			s[ jsonProp ] = s[ jsonProp ].replace( rjsonp, "$1" + callbackName );
 		} else if ( s.jsonp !== false ) {
+<<<<<<< HEAD
 			s.url += ( rquery.test( s.url ) ? "&" : "?" ) + s.jsonp + "=" + callbackName;
+=======
+			s.url += ( ajax_rquery.test( s.url ) ? "&" : "?" ) + s.jsonp + "=" + callbackName;
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
 		}
 
 		// Use data converter to retrieve json after script execution
@@ -85,5 +96,8 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 		return "script";
 	}
 });
+<<<<<<< HEAD
 
 });
+=======
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3

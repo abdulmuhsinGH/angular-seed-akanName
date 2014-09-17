@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 Copyright 2014 jQuery Foundation and other contributors
+=======
+Copyright 2013 jQuery Foundation and other contributors
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
 http://jquery.com/
 
 Permission is hereby granted, free of charge, to any person obtaining

@@ -39,11 +39,16 @@ describe('akanName', function(){
     }));
   });
 describe('gettheday', function(){
+<<<<<<< HEAD
     it('should show the day for the date',inject(function(){
+=======
+    it('should show the right akan name',inject(function(){
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
       expect(getTheDay("16 September 2014")).toEqual("Tuesday");
     }));
   });
 
+<<<<<<< HEAD
 describe('FB testAPI', function(){
 
     it('should be defined', inject(function() {
@@ -54,5 +59,7 @@ describe('FB testAPI', function(){
    
   });
 
+=======
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
 
 });

@@ -5,12 +5,17 @@
  * Includes Sizzle.js
  * http://sizzlejs.com/
  *
+<<<<<<< HEAD
  * Copyright 2005, 2014 jQuery Foundation, Inc. and other contributors
+=======
+ * Copyright 2005, 2013 jQuery Foundation, Inc. and other contributors
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
  * Released under the MIT license
  * http://jquery.org/license
  *
  * Date: @DATE
  */
+<<<<<<< HEAD
 
 (function( global, factory ) {
 
@@ -36,6 +41,9 @@
 
 // Pass this if window is not defined yet
 }(typeof window !== "undefined" ? window : this, function( window, noGlobal ) {
+=======
+(function( window, undefined ) {
+>>>>>>> 15ba42d088e9a77be8036efbc2189d0ea4c8dfc3
 
 // Can't do this because several apps including ASP.NET trace
 // the stack via arguments.caller.callee and Firefox dies if
